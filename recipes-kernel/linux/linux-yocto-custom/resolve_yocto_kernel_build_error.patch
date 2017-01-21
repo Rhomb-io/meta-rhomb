@@ -1,0 +1,19 @@
+diff --git a/drivers/gpu/arm/mali/Kbuild b/drivers/gpu/arm/mali/Kbuild
+index 2d41d3f..fd45bbc 100644
+--- a/drivers/gpu/arm/mali/Kbuild
++++ b/drivers/gpu/arm/mali/Kbuild
+@@ -102,9 +102,11 @@ mali-y += \
+ 	linux/mali_pmu_power_up_down.o \
+ 	__malidrv_build_info.o
+ 
+-ifneq ($(MALI_PLATFORM_FILES),)
+-    mali-y += $(addprefix platform/$(MALI_PLATFORM)/,$(MALI_PLATFORM_FILES:.c=.o))
+-endif
++#ifneq ($(MALI_PLATFORM_FILES),)
++#    mali-y += $(addprefix platform/$(MALI_PLATFORM)/,$(MALI_PLATFORM_FILES:.c=.o))
++    mali-y += platform/exynos4412/platform.o
++    mali-y += platform/exynos4412/platform_dvfs.o
++#endif
+ 
+ # Clean object files from all taget platforms.
+ clean-files := $(wildcard $(src)/platform/*/*.o)

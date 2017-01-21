@@ -1,0 +1,2 @@
+mark patching start
+patch resolve_yocto_kernel_build_error.patch
